@@ -1,7 +1,8 @@
 import { Funnel } from "../../domain";
 import { type FunnelDTO, FunnelMapper } from "../../infrastructure";
+import {type IFunnelState} from "./IFunnelState";
 
-export class FunnelState {
+export class FunnelState implements IFunnelState {
   private current: Funnel;
   private readonly history: FunnelDTO[] = [];
 

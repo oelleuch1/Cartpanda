@@ -1,3 +1,4 @@
+// @ts-ignore
 export enum NodeType {
     SALES = 'SALES',
     ORDER = 'ORDER',

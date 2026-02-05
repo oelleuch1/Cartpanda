@@ -4,7 +4,8 @@ import {
     NodeId,
     NodePosition,
     NodeType,
-    NodeLabelFactory, DomainResult
+    NodeLabelFactory,
+    type DomainResult
 } from "../../domain";
 
 export class AddNodeUseCase {

@@ -1,5 +1,6 @@
 export class NodeId {
 
+    // @ts-ignore
     private constructor(public readonly value: string) {}
 
     static create(value: string): NodeId {

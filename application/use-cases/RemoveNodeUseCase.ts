@@ -1,4 +1,4 @@
-import { Funnel, NodeId, DomainResult } from "../../domain";
+import { Funnel, NodeId, type DomainResult } from "../../domain";
 
 export class RemoveNodeUseCase {
 

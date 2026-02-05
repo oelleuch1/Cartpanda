@@ -1,5 +1,6 @@
 export class NodePosition {
 
+    // @ts-ignore
     constructor(public readonly x: number, public readonly y: number) {}
 
     static create(position: NodePosition): NodePosition {

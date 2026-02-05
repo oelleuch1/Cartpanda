@@ -5,8 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbe6ba1f-5e20-47e6-8173-9b4197ba4ffa" name="Changes" comment="feat: add application layer">
+      <change afterPath="$PROJECT_DIR$/application/state/IFunnelState.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/components/canvas/FunnelCanvasActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/canvas/FunnelCanvasActions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/state/FunnelState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/state/FunnelState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/AddNodeUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/AddNodeUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/ConnectNodesUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/ConnectNodesUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/DownloadUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/DownloadUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/LoadFunnelUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/LoadFunnelUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/RemoveNodeUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/RemoveNodeUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/SaveFunnelUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/SaveFunnelUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/UndoLastUpdateUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/UndoLastUpdateUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/entitites/FunnelEdge.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/entitites/FunnelEdge.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/entitites/FunnelNode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/entitites/FunnelNode.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/shared/DomainResult.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/shared/DomainResult.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/shared/FunnelError.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/shared/FunnelError.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/value-objects/NodeId.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/value-objects/NodeId.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/value-objects/NodeLabel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/value-objects/NodeLabel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/value-objects/NodePosition.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/value-objects/NodePosition.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/value-objects/NodeType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/value-objects/NodeType.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/adapters/LocalStorageFunnelRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/adapters/LocalStorageFunnelRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/state/useFunnelState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/state/useFunnelState.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

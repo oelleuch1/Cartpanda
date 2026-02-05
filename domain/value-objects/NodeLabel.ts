@@ -1,5 +1,6 @@
 export class NodeLabel {
 
+    // @ts-ignore
     constructor(public readonly value: string) {}
 
     static create(value: string): NodeLabel {

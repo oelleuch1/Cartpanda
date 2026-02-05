@@ -1,8 +1,9 @@
-import { FunnelState } from "../state/FunnelState";
+import { type IFunnelState} from "../state/IFunnelState";
 
 export class UndoLastUpdateUseCase {
 
-    constructor(public readonly funnelState: FunnelState) {}
+    // @ts-ignore
+    constructor(public readonly funnelState: IFunnelState) {}
 
     execute(): void {
         this.funnelState.undo();

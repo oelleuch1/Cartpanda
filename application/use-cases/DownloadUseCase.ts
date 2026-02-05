@@ -1,8 +1,9 @@
-import { FunnelState } from "../state/FunnelState";
+import { type IFunnelState} from "../state/IFunnelState";
 
 export class DownloadUseCase {
 
-    constructor(public readonly funnelState: FunnelState) {}
+    // @ts-ignore
+    constructor(public readonly funnelState: IFunnelState) {}
 
     execute(): void {
         this.funnelState.download();

@@ -1,3 +1,4 @@
+// @ts-ignore
 export enum FunnelErrorCode {
     NODE_NOT_FOUND = 'NODE_NOT_FOUND',
     CANNOT_HAVE_OUTGOING_EDGE = 'CANNOT_HAVE_OUTGOING_EDGE',

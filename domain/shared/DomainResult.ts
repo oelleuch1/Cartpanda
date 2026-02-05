@@ -1,4 +1,4 @@
-import {FunnelError, FunnelErrorCode} from "./FunnelError";
+import { type FunnelError, FunnelErrorCode} from "./FunnelError";
 
 export type DomainResult<T> =
     | { ok: true; value?: T; }

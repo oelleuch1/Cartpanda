@@ -1,7 +1,7 @@
 import { Funnel } from '../../domain';
-import { IFunnelRepository } from '../../application';
+import { type IFunnelRepository } from '../../application';
 import { FunnelMapper } from '../mappers/FunnelMapper';
-import { FunnelDTO } from '../dtos/FunnelDTO';
+import { type FunnelDTO } from '../dtos/FunnelDTO';
 
 const STORAGE_KEY = 'funnel';
 
