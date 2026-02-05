@@ -23,7 +23,7 @@ export function funnelToReactFlow(funnel: Funnel) {
     }));
 
     const edges = funnel.getEdges().map(edge => ({
-        id: `${edge.from.value}-${edge.to.value}`,
+        id: `${edge.from.value}#${edge.to.value}`,
         source: edge.from.value,
         target: edge.to.value
     }));

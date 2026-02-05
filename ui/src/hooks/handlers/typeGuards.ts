@@ -35,7 +35,7 @@ export function isEdgeRemoveChange(
 export function parseEdgeId(
   edgeId: string,
 ): { sourceId: string; targetId: string } | null {
-  const [sourceId, targetId] = edgeId.split("-");
+  const [sourceId, targetId] = edgeId.split("#");
   if (!sourceId || !targetId) return null;
   return { sourceId, targetId };
 }
