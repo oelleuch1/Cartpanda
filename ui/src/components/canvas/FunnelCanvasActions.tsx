@@ -1,7 +1,7 @@
 import { Undo2, Save, Download } from "lucide-react";
 import { getAppDependencies } from "../../plugins";
 import { useEffect, useCallback } from "react";
-import { cn, ICON_SIZE, KeyboardShortcuts } from "../../utils";
+import { cn, ICON_SIZE, KeyboardShortcuts, Toasts } from "../../utils";
 import type { FunnelCanvasActionsProps } from "../../types";
 
 export function FunnelCanvasActions({
@@ -13,14 +13,17 @@ export function FunnelCanvasActions({
   const handleUndo = useCallback(() => {
     undoLastUpdate.execute();
     onUpdate();
+    Toasts.undone();
   }, [undoLastUpdate, onUpdate]);
 
   const handleSave = useCallback(() => {
     saveFunnel.execute(funnelState.funnel);
+    Toasts.saved();
   }, [saveFunnel, funnelState.funnel]);
 
   const handleDownload = useCallback(() => {
-      downloadFunnel.execute();
+    downloadFunnel.execute();
+    Toasts.downloaded();
   }, [downloadFunnel]);
 
   useEffect(() => {
@@ -64,14 +67,14 @@ export function FunnelCanvasActions({
         <Save className={ICON_SIZE.sm} />
         <span>Save</span>
       </button>
-        <button
-            onClick={handleDownload}
-            className={buttonClass}
-            title="Donwload (Ctrl+D)"
-        >
-            <Download className={ICON_SIZE.sm} />
-            <span>Download</span>
-        </button>
+      <button
+        onClick={handleDownload}
+        className={buttonClass}
+        title="Download (Ctrl+D)"
+      >
+        <Download className={ICON_SIZE.sm} />
+        <span>Download</span>
+      </button>
     </div>
   );
 }

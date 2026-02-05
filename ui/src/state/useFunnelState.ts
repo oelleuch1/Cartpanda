@@ -6,8 +6,7 @@ import type { UseFunnelStateReturn } from "../types";
 export type { UseFunnelStateReturn } from "../types";
 
 export function useFunnelState(initial: FunnelState): UseFunnelStateReturn {
-  // @eslint-ignore
-  const [_, setVersion] = useState(0);
+  const [, setVersion] = useState(0);
 
   const forceUpdate = useCallback(() => {
     setVersion((v) => v + 1);
