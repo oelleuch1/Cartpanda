@@ -41,7 +41,7 @@ const createNodePaletteItem = (
   }
 };
 
-export function NodePaletteItem({ type }: NodePaletteItemProps) {
+export function NodePaletteItem({ type, connectionType }: NodePaletteItemProps) {
   const [, setType] = useDnD();
   const item = createNodePaletteItem(type);
 
@@ -72,9 +72,7 @@ export function NodePaletteItem({ type }: NodePaletteItemProps) {
           {item.label}
         </div>
         <div className="text-xs text-muted-foreground truncate">
-          {type === NodeType.THANK_YOU
-            ? "End of funnel"
-            : `Connect to next step`}
+          { connectionType === 'output' ? "End of funnel" : `Connect to next step`}
         </div>
       </div>
     </div>

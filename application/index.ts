@@ -10,3 +10,4 @@ export * from "./use-cases/RemoveEdgeUseCase";
 export * from "./use-cases/LoadFunnelUseCase";
 export * from "./use-cases/SaveFunnelUseCase";
 export * from "./use-cases/UndoLastUpdateUseCase";
+export * from "./use-cases/DownloadUseCase";

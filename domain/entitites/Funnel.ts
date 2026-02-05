@@ -8,6 +8,7 @@ import {
 } from "../shared/DomainResult";
 import { FunnelErrorCode } from "../shared/FunnelError";
 import { FunnelValidator } from "../services/FunnelValidator";
+import { NodeType } from "../value-objects/NodeType";
 
 export class Funnel {
   private nodes: FunnelNode[] = [];
@@ -22,6 +23,13 @@ export class Funnel {
   }
 
   addNode(node: FunnelNode): DomainResult<void> {
+    const typesCannotBeDuplicated = [NodeType.ORDER, NodeType.SALES, NodeType.THANK_YOU]
+    if (typesCannotBeDuplicated.includes(node.type)) {
+        const hasNodeWithSameTypeExists = this.nodes.some(({ type }) => type === node.type)
+        if (hasNodeWithSameTypeExists) {
+            return DomainResultErrorFactory.createFunnelError(FunnelErrorCode.NODE_CANNOT_BE_DUPLICATED);
+        }
+    }
     this.nodes.push(node);
     return { ok: true };
   }

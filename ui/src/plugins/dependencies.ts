@@ -7,6 +7,7 @@ import {
   RemoveEdgeUseCase,
   MoveNodeUseCase,
   UndoLastUpdateUseCase,
+  DownloadUseCase,
   FunnelState,
 } from "../../../application";
 import { LocalStorageFunnelRepository } from "../../../infrastructure";
@@ -24,6 +25,7 @@ class DependencyContainer {
   readonly connectNodes: ConnectNodesUseCase;
   readonly removeEdge: RemoveEdgeUseCase;
   readonly undoLastUpdate: UndoLastUpdateUseCase;
+  readonly downloadFunnel: DownloadUseCase;
 
   private constructor() {
     this.repository = new LocalStorageFunnelRepository();
@@ -39,6 +41,7 @@ class DependencyContainer {
     this.connectNodes = new ConnectNodesUseCase();
     this.removeEdge = new RemoveEdgeUseCase();
     this.undoLastUpdate = new UndoLastUpdateUseCase(this.funnelState);
+    this.downloadFunnel = new DownloadUseCase(this.funnelState);
   }
 
   static getInstance(): DependencyContainer {

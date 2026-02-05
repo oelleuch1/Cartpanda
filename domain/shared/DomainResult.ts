@@ -13,6 +13,8 @@ export class DomainResultErrorFactory {
                 return { ok: false, error: { code, message: 'Thank you cannot have outgoing edge' } }
             case FunnelErrorCode.EDGE_ALREADY_EXISTS:
                 return { ok: false, error: { code, message: 'Edge is already existing' } }
+            case FunnelErrorCode.NODE_CANNOT_BE_DUPLICATED:
+                return { ok: false, error: { code, message: 'Node already exists with same type' } }
         }
     }
 }

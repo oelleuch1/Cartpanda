@@ -26,7 +26,6 @@ export function executeNodeMove(
         NodeId.create(nodeId),
         new NodePosition(position.x, position.y),
       ),
-    () => ctx.saveFunnel.execute(ctx.funnel),
   );
 }
 

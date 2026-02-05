@@ -105,4 +105,5 @@ export interface FunnelCanvasActionsProps {
 /** Props for NodePaletteItem component */
 export interface NodePaletteItemProps {
   type: NodeType;
+  connectionType: string;
 }

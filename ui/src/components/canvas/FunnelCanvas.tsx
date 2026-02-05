@@ -36,8 +36,7 @@ export function FunnelCanvas({ funnelState }: FunnelCanvasProps) {
 
   const refreshUI = useCallback(() => {
     setUpdateCount((c) => c + 1);
-    deps.saveFunnel.execute(funnelState.funnel);
-  }, [deps.saveFunnel, funnelState.funnel]);
+  }, []);
 
   const {
     handleDragOver,

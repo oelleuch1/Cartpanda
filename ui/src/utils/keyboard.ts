@@ -13,8 +13,4 @@ export const isKeyboardShortcut = (
 export const KeyboardShortcuts = {
   isUndo: (event: KeyboardEvent) => isKeyboardShortcut(event, "z"),
   isSave: (event: KeyboardEvent) => isKeyboardShortcut(event, "s"),
-  isRedo: (event: KeyboardEvent) => isKeyboardShortcut(event, "y"),
-  isCopy: (event: KeyboardEvent) => isKeyboardShortcut(event, "c"),
-  isPaste: (event: KeyboardEvent) => isKeyboardShortcut(event, "v"),
-  isCut: (event: KeyboardEvent) => isKeyboardShortcut(event, "x"),
 } as const;

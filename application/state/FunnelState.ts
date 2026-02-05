@@ -30,7 +30,18 @@ export class FunnelState {
     this.current = FunnelMapper.toDomain(snapshot);
   }
 
-  hasHistory(): boolean {
-    return this.history.length > 0;
+  download(): void {
+      const funnelConfig = JSON.stringify(this.getCurrent(), null, 2);
+      const blob = new Blob([funnelConfig], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = 'funnel.json';
+      document.body.appendChild(a);
+      a.click();
+
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
   }
 }

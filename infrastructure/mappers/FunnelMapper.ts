@@ -6,7 +6,7 @@ import {
     NodeLabel,
     NodePosition
 } from "../../domain";
-import { FunnelDTO } from "../dtos/FunnelDTO";
+import { type FunnelDTO } from "../dtos/FunnelDTO";
 
 export class FunnelMapper {
 
