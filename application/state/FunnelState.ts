@@ -1,27 +1,36 @@
-import { Funnel } from '../../domain';
-import { type FunnelDTO, FunnelMapper } from '../../infrastructure';
+import { Funnel } from "../../domain";
+import { type FunnelDTO, FunnelMapper } from "../../infrastructure";
 
 export class FunnelState {
-    private current: Funnel;
-    private readonly history: FunnelDTO[] = [];
+  private current: Funnel;
+  private readonly history: FunnelDTO[] = [];
 
-    constructor(initial: Funnel) {
-        this.current = initial;
-    }
+  constructor(initial: Funnel) {
+    this.current = initial;
+  }
 
-    getCurrent(): Funnel {
-        return this.current;
-    }
+  getCurrent(): Funnel {
+    return this.current;
+  }
 
-    update(next: Funnel): void {
-        this.history.push(FunnelMapper.toDTO(this.current));
-        this.current = next;
-    }
+  /** Save a snapshot of current state before making changes */
+  saveSnapshot(): void {
+    this.history.push(FunnelMapper.toDTO(this.current));
+  }
 
-    undo(): void {
-        const snapshot = this.history.pop();
-        if (!snapshot) return;
+  update(next: Funnel): void {
+    this.history.push(FunnelMapper.toDTO(this.current));
+    this.current = next;
+  }
 
-        this.current = FunnelMapper.toDomain(snapshot);
-    }
+  undo(): void {
+    const snapshot = this.history.pop();
+    if (!snapshot) return;
+
+    this.current = FunnelMapper.toDomain(snapshot);
+  }
+
+  hasHistory(): boolean {
+    return this.history.length > 0;
+  }
 }

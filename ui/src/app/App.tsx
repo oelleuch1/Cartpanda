@@ -1,18 +1,22 @@
-import {getAppDependencies} from '../plugins/dependencies';
-import {NodePalette} from "../components/sidebar/NodePalette.tsx";
-import {FunnelCanvas} from "../components/canvas/FunnelCanvas.tsx";
-import {useFunnelState} from "../state/useFunnelState.ts";
+import { getAppDependencies } from "../plugins";
+import { NodePalette, FunnelCanvas } from "../components";
+import { useFunnelState, DnDProvider } from "../state";
+import { ReactFlowProvider } from "@xyflow/react";
 
 function App() {
-    const { funnelState: initialFunnelState } = getAppDependencies();
-    const funnelState = useFunnelState(initialFunnelState);
+  const { funnelState: initialFunnelState } = getAppDependencies();
+  const funnelState = useFunnelState(initialFunnelState);
 
-    return (
+  return (
+    <ReactFlowProvider>
+      <DnDProvider>
         <div className="h-screen flex">
           <NodePalette />
           <FunnelCanvas funnelState={funnelState} />
-      </div>
-    )
+        </div>
+      </DnDProvider>
+    </ReactFlowProvider>
+  );
 }
 
-export default App
+export default App;

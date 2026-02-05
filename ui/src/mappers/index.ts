@@ -1,0 +1,1 @@
+export { funnelToReactFlow } from "./reactFlowMapper";

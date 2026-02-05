@@ -1,0 +1,65 @@
+import { Undo2, Save } from "lucide-react";
+import { getAppDependencies } from "../../plugins";
+import { useEffect, useCallback } from "react";
+import { cn, ICON_SIZE, KeyboardShortcuts } from "../../utils";
+import type { FunnelCanvasActionsProps } from "../../types";
+
+export function FunnelCanvasActions({
+  funnelState,
+  onUpdate,
+}: FunnelCanvasActionsProps) {
+  const { undoLastUpdate, saveFunnel } = getAppDependencies();
+
+  const handleUndo = useCallback(() => {
+    undoLastUpdate.execute();
+    onUpdate();
+  }, [undoLastUpdate, onUpdate]);
+
+  const handleSave = useCallback(() => {
+    saveFunnel.execute(funnelState.funnel);
+  }, [saveFunnel, funnelState.funnel]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (KeyboardShortcuts.isUndo(event)) {
+        event.preventDefault();
+        handleUndo();
+      }
+      if (KeyboardShortcuts.isSave(event)) {
+        event.preventDefault();
+        handleSave();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleUndo, handleSave]);
+
+  const buttonClass = cn(
+    "flex items-center gap-2 px-3 py-2 rounded-lg",
+    "bg-card border border-border text-foreground",
+    "hover:bg-muted transition-colors duration-200",
+    "text-sm font-medium",
+  );
+
+  return (
+    <div className="absolute top-4 right-4 z-10 flex gap-2">
+      <button
+        onClick={handleUndo}
+        className={buttonClass}
+        title="Undo (Ctrl+Z)"
+      >
+        <Undo2 className={ICON_SIZE.sm} />
+        <span>Undo</span>
+      </button>
+      <button
+        onClick={handleSave}
+        className={buttonClass}
+        title="Save (Ctrl+S)"
+      >
+        <Save className={ICON_SIZE.sm} />
+        <span>Save</span>
+      </button>
+    </div>
+  );
+}

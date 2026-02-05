@@ -1,80 +1,89 @@
-import {Funnel, NodeType} from "../../../../domain";
-import {funnelToReactFlow} from "../../mappers/reactFlowMapper";
-import {useRef, useCallback} from 'react';
-import {getAppDependencies} from "../../plugins/dependencies";
+import { funnelToReactFlow } from "../../mappers";
+import { useRef, useCallback, useState, useEffect } from "react";
+import { getAppDependencies } from "../../plugins";
 import {
-    ReactFlow,
-    useNodesState,
-    useEdgesState,
-    Controls,
-    useReactFlow,
-    Background,
-} from '@xyflow/react';
-import { useDnD } from '../../state/DnDContext';
+  ReactFlow,
+  useNodesState,
+  useEdgesState,
+  Controls,
+  useReactFlow,
+  Background,
+} from "@xyflow/react";
+import { useDnD, useFunnelHandlers } from "../../hooks";
+import { FunnelCanvasActions } from "./FunnelCanvasActions";
+import type { FunnelCanvasProps } from "../../types";
 
-import '@xyflow/react/dist/style.css';
-
-export type FunnelCanvasProps = {
-    funnelState: { funnel: Funnel };
-}
+import "@xyflow/react/dist/style.css";
 
 export function FunnelCanvas({ funnelState }: FunnelCanvasProps) {
+  const reactFlowWrapper = useRef<HTMLDivElement>(null);
+  const deps = getAppDependencies();
+  const { screenToFlowPosition } = useReactFlow();
+  const [nodeType] = useDnD();
+
+  const [updateCount, setUpdateCount] = useState(0);
+  const { nodes: initialNodes, edges: initialEdges } = funnelToReactFlow(
+    funnelState.funnel,
+  );
+  const [currentNodes, setUINodes, onNodesChange] = useNodesState(initialNodes);
+  const [currentEdges, setUIEdges, onEdgesChange] = useEdgesState(initialEdges);
+
+  useEffect(() => {
     const { nodes, edges } = funnelToReactFlow(funnelState.funnel);
-    const reactFlowWrapper = useRef(null);
-    const { addNode, moveNode, removeNode, connectNodes, removeEdge } = getAppDependencies();
+    setUINodes(nodes);
+    setUIEdges(edges);
+  }, [updateCount, funnelState.funnel, setUINodes, setUIEdges]);
 
-    const { screenToFlowPosition } = useReactFlow();
-    const [type, setType] = useDnD();
+  const refreshUI = useCallback(() => {
+    setUpdateCount((c) => c + 1);
+    deps.saveFunnel.execute(funnelState.funnel);
+  }, [deps.saveFunnel, funnelState.funnel]);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, setUINodes] = useNodesState(nodes);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [__, setUIEdges] = useEdgesState(edges);
+  const {
+    handleDragOver,
+    handleDrop,
+    handleNodesChange,
+    handleEdgesChange,
+    handleConnect,
+    handleNodesDelete,
+  } = useFunnelHandlers({
+    funnel: funnelState.funnel,
+    appFunnelState: deps.funnelState,
+    addNode: deps.addNode,
+    moveNode: deps.moveNode,
+    removeNode: deps.removeNode,
+    connectNodes: deps.connectNodes,
+    removeEdge: deps.removeEdge,
+    saveFunnel: deps.saveFunnel,
+    screenToFlowPosition,
+    nodeType,
+    onNodesChange,
+    onEdgesChange,
+    setUINodes,
+    setUIEdges,
+    refreshUI,
+  });
 
-    const onDragOver = useCallback((event) => {
-        event.preventDefault();
-        event.dataTransfer.dropEffect = 'move';
-    }, []);
-
-    const onDrop = useCallback(
-        (event) => {
-            event.preventDefault();
-
-            const position = screenToFlowPosition({
-                x: event.clientX,
-                y: event.clientY,
-            });
-
-            const { ok } = addNode.execute(funnelState.funnel, type, position);
-            if (ok) {
-                const { nodes } = funnelToReactFlow(funnelState.funnel);
-                setUINodes(nodes)
-            }
-        },
-        [],
-    );
-
-    const onDragStart = (event) => {
-        setType?.(nodeType);
-        event.dataTransfer.setData('text/plain', 'SALES');
-        event.dataTransfer.effectAllowed = 'move';
-    };
-
-    return (
-        <div className="dndflow">
-            <div className="reactflow-wrapper" ref={reactFlowWrapper}>
-                <ReactFlow
-                    nodes={nodes}
-                    edges={edges}
-                    onDrop={onDrop}
-                    onDragStart={onDragStart}
-                    onDragOver={onDragOver}
-                    fitView
-                >
-                    <Controls />
-                    <Background />
-                </ReactFlow>
-            </div>
-        </div>
-    );
+  return (
+    <div className="flex-1 h-full relative">
+      <FunnelCanvasActions funnelState={funnelState} onUpdate={refreshUI} />
+      <div className="reactflow-wrapper h-full" ref={reactFlowWrapper}>
+        <ReactFlow
+          nodes={currentNodes}
+          edges={currentEdges}
+          onNodesChange={handleNodesChange}
+          onEdgesChange={handleEdgesChange}
+          onConnect={handleConnect}
+          onNodesDelete={handleNodesDelete}
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          fitView
+          deleteKeyCode={["Backspace", "Delete"]}
+        >
+          <Controls />
+          <Background />
+        </ReactFlow>
+      </div>
+    </div>
+  );
 }

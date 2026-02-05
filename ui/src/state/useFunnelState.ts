@@ -1,27 +1,44 @@
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { Funnel } from "../../../domain";
-import {FunnelState} from "../../../application";
+import { FunnelState } from "../../../application";
+import type { UseFunnelStateReturn } from "../types";
 
-export function useFunnelState(initial: FunnelState) {
-    const [state, setState] = useState<FunnelState>(initial);
+export type { UseFunnelStateReturn } from "../types";
 
-    return {
-        get funnel() {
-            return state.getCurrent();
-        },
+/**
+ * React hook that wraps FunnelState and triggers re-renders on state changes.
+ * Uses a version counter to force React to detect changes.
+ */
+export function useFunnelState(initial: FunnelState): UseFunnelStateReturn {
+  const [version, setVersion] = useState(0);
 
-        update(next: Funnel) {
-            setState(prev => {
-                prev.update(next);
-                return prev;
-            });
-        },
+  // Force re-render by incrementing version
+  const forceUpdate = useCallback(() => {
+    setVersion((v) => v + 1);
+  }, []);
 
-        undo() {
-            setState(prev => {
-                prev.undo();
-                return prev;
-            });
-        }
-    };
+  const update = useCallback(
+    (next: Funnel) => {
+      initial.update(next);
+      forceUpdate();
+    },
+    [initial, forceUpdate],
+  );
+
+  const undo = useCallback(() => {
+    initial.undo();
+    forceUpdate();
+  }, [initial, forceUpdate]);
+
+  // Memoize to maintain stable reference while allowing funnel to update
+  return useMemo(
+    () => ({
+      get funnel() {
+        return initial.getCurrent();
+      },
+      update,
+      undo,
+    }),
+    [initial, update, undo, version],
+  );
 }
