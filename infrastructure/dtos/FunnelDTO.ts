@@ -1,5 +1,5 @@
-import { FunnelNodeDTO } from "./FunnelNodeDTO";
-import { FunnelEdgeDTO } from "./FunnelEdgeDTO";
+import { type FunnelNodeDTO } from "./FunnelNodeDTO";
+import { type FunnelEdgeDTO } from "./FunnelEdgeDTO";
 
 export interface FunnelDTO {
     nodes: FunnelNodeDTO[];

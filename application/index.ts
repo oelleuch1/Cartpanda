@@ -1,8 +1,12 @@
 export * from "./repositories/IFunnelRepository";
 
+export * from "./state/FunnelState";
+
 export * from "./use-cases/AddNodeUseCase";
 export * from "./use-cases/MoveNodeUseCase";
 export * from "./use-cases/ConnectNodesUseCase";
 export * from "./use-cases/RemoveNodeUseCase";
+export * from "./use-cases/RemoveEdgeUseCase";
 export * from "./use-cases/LoadFunnelUseCase";
 export * from "./use-cases/SaveFunnelUseCase";
+export * from "./use-cases/UndoLastUpdateUseCase";

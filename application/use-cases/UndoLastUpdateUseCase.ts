@@ -1,6 +1,6 @@
 import { FunnelState } from "../state/FunnelState";
 
-export class UndoLastOperationUseCase {
+export class UndoLastUpdateUseCase {
 
     constructor(public readonly funnelState: FunnelState) {}
 

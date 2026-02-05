@@ -1,5 +1,5 @@
 import {Funnel} from "../../domain";
-import {IFunnelRepository} from "../repositories/IFunnelRepository";
+import type {IFunnelRepository} from "../repositories/IFunnelRepository";
 
 export class SaveFunnelUseCase {
     constructor(

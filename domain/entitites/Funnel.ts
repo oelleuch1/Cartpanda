@@ -2,7 +2,7 @@ import {FunnelNode} from "./FunnelNode";
 import {FunnelEdge} from "./FunnelEdge";
 import {NodeId} from "../value-objects/NodeId";
 import {NodePosition} from "../value-objects/NodePosition";
-import {DomainResult, DomainResultErrorFactory} from "../shared/DomainResult";
+import {type DomainResult, DomainResultErrorFactory} from "../shared/DomainResult";
 import {FunnelErrorCode} from "../shared/FunnelError";
 import {FunnelValidator} from "../services/FunnelValidator";
 
@@ -18,8 +18,9 @@ export class Funnel {
         return [...this.edges];
     }
 
-    addNode(node: FunnelNode) {
+    addNode(node: FunnelNode):  DomainResult<void>  {
         this.nodes.push(node);
+        return { ok: true };
     }
 
     moveNode(id: NodeId, position: NodePosition): DomainResult<void> {
@@ -67,7 +68,8 @@ export class Funnel {
         return { ok: true };
     }
 
-    removeEdge(edge: FunnelEdge) {
+    removeEdge(edge: FunnelEdge): DomainResult<void> {
         this.edges = this.edges.filter(e => !e.equals(edge));
+        return { ok: true };
     }
 }

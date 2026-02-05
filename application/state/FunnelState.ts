@@ -1,6 +1,5 @@
 import { Funnel } from '../../domain';
-import { FunnelMapper } from '../../infrastructure/mappers/FunnelMapper';
-import { FunnelDTO } from '../../infrastructure/dtos/FunnelDTO';
+import { type FunnelDTO, FunnelMapper } from '../../infrastructure';
 
 export class FunnelState {
     private current: Funnel;

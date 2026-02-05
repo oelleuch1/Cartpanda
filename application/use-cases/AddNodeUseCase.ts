@@ -4,7 +4,7 @@ import {
     NodeId,
     NodePosition,
     NodeType,
-    NodeLabelFactory
+    NodeLabelFactory, DomainResult
 } from "../../domain";
 
 export class AddNodeUseCase {
@@ -13,13 +13,11 @@ export class AddNodeUseCase {
         funnel: Funnel,
         type: NodeType,
         position: NodePosition
-    ): Funnel {
+    ):  DomainResult<void> {
         const id = NodeId.create(crypto.randomUUID());
         const label = NodeLabelFactory.create(type, funnel.getNodes());
 
         const node = new FunnelNode(id, type, label, position);
-
-        funnel.addNode(node);
-        return funnel;
+        return funnel.addNode(node);
     }
 }

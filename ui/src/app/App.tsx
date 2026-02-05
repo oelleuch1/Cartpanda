@@ -9,7 +9,7 @@ function App() {
 
     return (
         <div className="h-screen flex">
-          <NodePalette onAddNode={(t) => console.log({ t })} />
+          <NodePalette />
           <FunnelCanvas funnelState={funnelState} />
       </div>
     )

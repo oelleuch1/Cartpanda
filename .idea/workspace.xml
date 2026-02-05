@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbe6ba1f-5e20-47e6-8173-9b4197ba4ffa" name="Changes" comment="feat: add application layer">
-      <change afterPath="$PROJECT_DIR$/infrastructure/adapters/LocalStorageFunnelRepository.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/dtos/FunnelDTO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/dtos/FunnelEdgeDTO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/dtos/FunnelNodeDTO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/mappers/FunnelMapper.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/repositories/IFunnelRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/repositories/IFunnelRepository.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/state/FunnelState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/state/FunnelState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/AddNodeUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/AddNodeUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/LoadFunnelUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/LoadFunnelUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/MoveNodeUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/MoveNodeUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/RemoveEdgeUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/RemoveEdgeUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/SaveFunnelUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/SaveFunnelUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/use-cases/UndoLastUpdateUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/use-cases/UndoLastUpdateUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/entitites/Funnel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/entitites/Funnel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/dtos/FunnelDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/dtos/FunnelDTO.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/components/canvas/FunnelCanvas.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/canvas/FunnelCanvas.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/components/canvas/FunnelNode.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +34,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -50,12 +58,13 @@
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/oussa/Desktop/Projects/test-cartpanda/domain/entitites",
+    "last_opened_file_path": "C:/Users/oussa/Desktop/Projects/test-cartpanda/infrastructure",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "C:\\Users\\oussa\\Desktop\\Projects\\test-cartpanda\\ui\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
@@ -72,17 +81,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\infrastructure" />
+      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\application" />
+      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\ui\src\components\canvas" />
       <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\domain\entitites" />
       <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\application\use-cases" />
-      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda" />
-      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\ui\src\app" />
       <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\application\state" />
       <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\domain\entitites" />
       <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\application\use-cases" />
       <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\ui" />
-      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\src" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -100,7 +110,7 @@
       <option name="presentableId" value="Default" />
       <updated>1770298493595</updated>
       <workItem from="1770298494880" duration="1261000" />
-      <workItem from="1770299940346" duration="6938000" />
+      <workItem from="1770299940346" duration="18748000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add application layer">
       <option name="closed" value="true" />
