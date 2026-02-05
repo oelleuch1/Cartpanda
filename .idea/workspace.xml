@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbe6ba1f-5e20-47e6-8173-9b4197ba4ffa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ui/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/repositories/IFunnelRepository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/state/FunnelState.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/use-cases/AddNodeUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/use-cases/ConnectNodesUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/use-cases/LoadFunnelUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/use-cases/MoveNodeUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/use-cases/RemoveNodeUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/use-cases/SaveFunnelUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/use-cases/UndoLastOperationUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +27,13 @@
     <persistenceIdMap>
       <entry key="_C:/Users/oussa/Desktop/Projects/test-cartpanda" value="39Fj11lD7ZY14vzHbCRTN9xutFp" />
     </persistenceIdMap>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,25 +46,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/oussa/Desktop/Projects/test-cartpanda&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\oussa\\Desktop\\Projects\\test-cartpanda\\ui\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/oussa/Desktop/Projects/test-cartpanda/domain/entitites",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Users\\oussa\\Desktop\\Projects\\test-cartpanda\\ui\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -58,14 +76,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\domain\entitites" />
+      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\application\use-cases" />
       <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda" />
       <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\application\state" />
+      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\domain\entitites" />
+      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\application\use-cases" />
       <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\ui" />
       <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\src" />
-      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda" />
-      <recent name="C:\Users\oussa\Desktop\Projects\test-cartpanda\src\ui" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -83,6 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1770298493595</updated>
       <workItem from="1770298494880" duration="1261000" />
+      <workItem from="1770299940346" duration="5787000" />
     </task>
     <servers />
   </component>
